@@ -42,7 +42,7 @@ public class SlowChat extends JavaPlugin implements Listener {
             else // Muting chat!
             {
                 this.chatSlow = -1;
-                getServer().broadcastMessage(getMuteStartBroadcast());
+                safeBroadcast(getMuteStartBroadcast());
             }
         }
         else if (input > 0) //Trying to slow!
@@ -51,19 +51,19 @@ public class SlowChat extends JavaPlugin implements Listener {
 
             // Slowing Chat!
             this.chatSlow = input;
-            getServer().broadcastMessage(getSlowStartBroadcast().replace("<time>", format(input)));
+            safeBroadcast(getSlowStartBroadcast().replace("<time>", format(input)));
         }
         else // Trying to set to normal!
         {
             if (this.chatSlow > 0) // Was slowed
             {
                 this.chatSlow = 0;
-                getServer().broadcastMessage(getSlowStopBroadcast().replace("<time>", format(input)));
+                safeBroadcast(getSlowStopBroadcast().replace("<time>", format(input)));
             }
             else if (chatSlow < 0) // Was muted
             {
                 this.chatSlow = 0;
-                getServer().broadcastMessage(getMuteStopBroadcast());
+                safeBroadcast(getMuteStopBroadcast());
             }
             else // Already normal
             {
@@ -78,7 +78,7 @@ public class SlowChat extends JavaPlugin implements Listener {
         return this.chatSlow;
     }
 
-    public ConcurrentHashMap<UUID, Long> chatTimes = new ConcurrentHashMap<UUID, Long>();
+    public ConcurrentHashMap<UUID, Long> chatTimes = new ConcurrentHashMap<>();
 
     @Override
     public void onEnable()
@@ -153,7 +153,14 @@ public class SlowChat extends JavaPlugin implements Listener {
         }
         //equals zero -> normal
     }
-
+    
+    public void safeBroadcast(String message)
+    {
+        if (message.isEmpty())
+            return;
+        getServer().broadcastMessage(message);
+    }
+    
     public static String format(long time)
     {
         return DurationFormatUtils.formatDurationWords(time, true, true);
