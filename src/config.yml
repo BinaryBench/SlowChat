@@ -1,0 +1,8 @@
+#<time> is replaced with the time left
+mute-message: "&cArr, Ya can't be talkin now, you Scurvy dog!"
+mute-start-broadcast: "&cOi scallywags!  Shut up or to the locker with ya!"
+mute-stop-broadcast: "&aTalk! ya worthless bunch of Scurvy dogs."
+
+slow-message: "&cThere be &e<time>&c before ya can speak again!"
+slow-start-broadcast: "&cYall can nah be speakin' that smartly! Only once a &e<time>&c, maties!  Savvy?"
+slow-stop-broadcast: "&aAlright ye no good scallywags. About and let 'em hear your rattle!"

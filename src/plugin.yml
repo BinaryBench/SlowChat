@@ -1,0 +1,22 @@
+name: SlowChat
+main: me.binarybench.slowchat.SlowChat
+version: 1.0
+author: BinaryBench
+commands:
+  slowchat:
+    description: Slows chat
+    aliases: [slow, chatslow]
+    permission: chatslow.commands
+    usage: /slowchat <time>
+  mutechat:
+    description: Mutes chat
+    aliases: [mute, chatmute]
+    permission: chatslow.commands
+    usage: /mutechat
+permissions:
+  chatslow.commands:
+    description: Allows access to the /slowchat & /mutechat commands
+    default: op
+  chatslow.bypass:
+    description: Bypasses slowed chat
+    default: op
