@@ -24,13 +24,13 @@ public class SlowCommand implements CommandExecutor {
 
         long chatSlow = plugin.getChatSlow();
 
-        int input = 0;
+        long input = 0;
 
         if (args.length >= 1)
         {
             try
             {
-                input = (int) (Float.parseFloat(args[0]) * 1000);
+                input = (long) (Float.parseFloat(args[0]) * 1000);
             }
             catch (NumberFormatException e)
             {

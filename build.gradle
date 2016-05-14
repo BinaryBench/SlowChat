@@ -1,0 +1,66 @@
+/*
+ *     This file is part of SlowChat.
+ *
+ *     SlowChat is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     SlowChat is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with SlowChat.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.9' //version required
+}
+
+group 'me.binarybench'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
+    }
+}
+
+configurations {
+    //adding a configuration:
+    includeInJar
+}
+
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+
+    compile fileTree(include: ['*.jar'], dir: 'src/main/libs')
+    compile 'org.bukkit:bukkit:1.9.2-R0.1-SNAPSHOT'
+
+    //includeInJar 'org.apache.httpcomponents:httpclient:4.5.2'
+    //includeInJar 'commons-io:commons-io:2.4'
+    //includeInJar 'org.apache.commons:commons-collections4:4.1'
+
+
+    //compile 'javax.ws.rs:jsr311-api:0.11'
+
+    configurations.compile.extendsFrom(configurations.includeInJar)
+
+}
+
+jar {
+
+    //println "includeInJar: " + configurations.includeInJar.collect { File file -> file }
+    from configurations.includeInJar.collect { zipTree it }
+
+
+}

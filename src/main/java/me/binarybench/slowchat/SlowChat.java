@@ -78,7 +78,7 @@ public class SlowChat extends JavaPlugin implements Listener {
         return this.chatSlow;
     }
 
-    public ConcurrentHashMap<UUID, Long> chatTimes = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<UUID, Long> chatTimes = new ConcurrentHashMap<UUID, Long>();
 
     @Override
     public void onEnable()

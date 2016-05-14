@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SlowChat.iml" filepath="$PROJECT_DIR$/SlowChat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SlowChat.iml" filepath="$PROJECT_DIR$/.idea/modules/SlowChat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SlowChat_main.iml" filepath="$PROJECT_DIR$/.idea/modules/SlowChat_main.iml" group="SlowChat" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SlowChat_test.iml" filepath="$PROJECT_DIR$/.idea/modules/SlowChat_test.iml" group="SlowChat" />
     </modules>
   </component>
 </project>
